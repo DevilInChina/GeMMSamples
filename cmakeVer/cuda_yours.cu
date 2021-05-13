@@ -17,11 +17,6 @@ void gemm_cuda_yours(float *A, float *B, float *C, int m, int k, int n,double *t
     cudaMalloc(&d_C, size);
 
 
-
-    cublasHandle_t s;
-    float al = 1,ve=0;
-    cublasCreate_v2(&s);
-
     for(int i = 0 ; i < WARMUP_TIMES ; ++i){
 
         ///// edit your warmup code here

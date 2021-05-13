@@ -127,7 +127,7 @@ int main(int argc, char ** argv)
 
 
     memset(C_ref, 0, sizeof(float) * m * n);
-    gemm_yours(A,B,C_ref,m,k,n,&time_value);
+    gemm_cuda_yours(A,B,C_ref,m,k,n,&time_value);
 
     time_value/=BENCH_TIMES;
     Name = "cuda_yours";
