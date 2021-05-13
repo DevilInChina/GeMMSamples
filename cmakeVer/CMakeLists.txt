@@ -39,8 +39,8 @@ set_target_properties(
 target_link_libraries(cudaGemm ompGemm cublas)
 
 add_executable(gemm_test main.c)
-target_link_libraries(gemm_test ompGemm cudaGemm)
-target_link_libraries(gemm_test ompGemm cublas)
+target_link_libraries(gemm_test ompGemm cudaGemm cublas)
+#target_link_libraries(gemm_test cublas)
 
 
 
