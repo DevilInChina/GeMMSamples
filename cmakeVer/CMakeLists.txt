@@ -17,7 +17,7 @@ endif ()
 add_compile_options(-O3)
 
 set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -gencode=arch=compute_61,code=compute_61")
-message(${CMAKE_CUDA_FLAGS})
+
 #[[linking dynamic lib]]
 link_libraries(m)
 link_libraries(pthread)
