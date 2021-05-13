@@ -4,7 +4,13 @@
 
 *give me a pull request though git*
 
-*https://github.com/DevilInChina/GemmSamples*
+*https://github.com/DevilInChina/GemmSamples *~~damn github~~*
+
+*or*
+
+*https://gitee.com/devilinchina/gemm-samples* *recommended*
+
+
 
 ## Set Environment
 
