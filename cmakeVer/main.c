@@ -47,13 +47,13 @@ int main(int argc, char ** argv)
 
     // compute C_golden for validation
     memset(C_golden, 0, sizeof(float) * m * n);
-    #pragma omp parallel for
-    for (int mi = 0; mi < m; mi++)
     {
-        for (int ki = 0; ki < k; ki++)
-        {
-            for (int ni = 0; ni < n; ni++)
-                C_golden[mi * n + ni] += A[mi * k + ki] * B[ki * n + ni];
+#pragma omp parallel for
+        for (int mi = 0; mi < m; mi++) {
+            for (int ki = 0; ki < k; ki++) {
+                for (int ni = 0; ni < n; ni++)
+                    C_golden[mi * n + ni] += A[mi * k + ki] * B[ki * n + ni];
+            }
         }
     }
 
@@ -126,6 +126,15 @@ int main(int argc, char ** argv)
     compareUndPrint(Name,C_ref,C_golden,m,n);
 
 
+    memset(C_ref, 0, sizeof(float) * m * n);
+    gemm_yours(A,B,C_ref,m,k,n,&time_value);
+
+    time_value/=BENCH_TIMES;
+    Name = "cuda_yours";
+    printf("\nGEMM (%s)(row-col, A and B are in row-major)) used %4.5f s for %d bench(s) in average, %4.2f GFlop/s\n",
+           Name,time_value,BENCH_TIMES, gflop/time_value);
+
+    compareUndPrint(Name,C_ref,C_golden,m,n);
 
     // free memory
     free(A);
