@@ -31,7 +31,7 @@ add_library(ompGemm SHARED omp_gemm.c)
 target_link_libraries(ompGemm libopenblas.a)
 
 
-add_library(cudaGemm SHARED cuda_gemm.cu cuda_gemm_share.cu cublas_gemm.cu)
+add_library(cudaGemm SHARED cuda_gemm.cu cuda_gemm_share.cu cublas_gemm.cu cuda_yours.cu)
 set_target_properties(
         cudaGemm
         PROPERTIES

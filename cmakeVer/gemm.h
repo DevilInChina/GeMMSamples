@@ -37,6 +37,8 @@ void gemm_cuda_shared(float *A, float *B, float *C, int m, int k, int n,double *
 
 void gemm_cublas(float *A, float *B, float *C, int m, int k, int n,double *time_value);
 
+void gemm_cuda_yours(float *A, float *B, float *C, int m, int k, int n,double *time_value);
+
 #if defined(__cplusplus)
 }
 #endif
